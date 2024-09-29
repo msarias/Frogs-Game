@@ -1,0 +1,313 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #eeeede;
+}
+
+input[type=checkbox]{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    appearance: none;
+    cursor: pointer;
+    z-index: 7;
+}
+
+input:checked{
+    counter-increment: frogs;
+}
+
+.score::after{
+    content: counter(frogs);
+}
+
+/* Contenedor del juego */
+.phone{
+    position: relative;
+    width: 300px;
+    height: 600px;
+    background-color: #8ed4f1;
+    border: .5rem solid #000;
+    border-radius: 2rem;
+    margin-top: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.40), 0 15px 12px rgba(0,0,0,0.30);
+    counter-reset: frogs;
+}
+
+/* Información del juego */
+.info{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 2rem;
+    background: #ffffff;
+    border: .2rem #000 solid;
+    border-radius: 2.5rem;
+    width: 80%;
+    position: relative;
+    padding: 1rem;
+}
+
+#mensaje{
+    position: relative;
+    width: auto;
+    height: auto;
+    top: 1rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #222;
+    transition: opacity .2s;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.hidden{
+    opacity: 0;
+}
+
+/* Diseñando la rana */
+.frog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+    width: 90px;
+    position: absolute;
+}
+
+.head{
+    display: flex;
+    justify-content: center;
+    width: 75px;
+    height: 65px;
+    border-radius: 60%;
+    background-color: #14a007;
+    position: absolute;
+}
+
+.head-eyelid-right{
+    position: absolute;
+    display: flex;
+    background: #14a007;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    top: -5px;
+    right: 10px;
+}
+
+.head-eyelid-left{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    background: #14a007;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    top: -5px;
+    left: 10px;
+}
+
+.head-eye-right{
+    display: flex;
+    background: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    justify-content: center;
+    position: absolute;
+    bottom: 1px;
+    left: 2px;
+}
+
+.head-eye-left{
+    display: flex;
+    background: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    justify-content: center;
+    position: absolute;
+    bottom: 1px;
+    right: 2px;
+}
+
+.head-eye-pupil-right{
+    display: flex;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+    bottom: 4px;
+    position: absolute;
+}
+
+.head-eye-pupil-left{
+    display: flex;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border-radius: 50%;
+    bottom: 4px;
+    position: absolute;
+}
+
+.abdomen{
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    background: #33b633;
+    border-radius: 60%;
+    bottom: 0;
+}
+
+/* Posicionando cada rana */
+.frog-1{
+    top: 245px;
+    left: 0;
+    z-index: 1;
+    animation: jumps 1s .5s infinite;
+}
+
+.frog-2{
+    top: 250px;
+    left: 80px;
+    z-index: 1;
+    animation: jumps .6s .5s infinite;
+}
+
+.frog-3{
+    top: 320px;
+    right: 0;
+    z-index: 3;
+    animation: jumps .8s .5s infinite;
+}
+
+.frog-4{
+    top: 330px;
+    right: 80px;
+    z-index: 3;
+    animation: jumps .7s .5s infinite;
+}
+
+.frog-5{
+    top: 400px;
+    z-index: 5;
+    animation: jumps .6s .5s infinite;
+}
+
+.frog-6{
+    top: 410px;
+    left: 85px;
+    z-index: 5;
+    animation: jumps .8s .5s infinite;
+}
+
+/* Creando los ríos */
+.creek{
+    position: absolute;
+    overflow: hidden;
+    background-color: #1212c5;
+    border-radius: 1rem;
+    bottom: 0;
+}
+
+.land{
+    height: 20px;
+    width: 100%;
+    background-color: #4e3215;
+}
+
+.water{
+    background: linear-gradient(135deg, #4e3215 25%, transparent 25%) -50px 0, linear-gradient(-135deg, #4e3215 25%, transparent 25%) -50px 0, linear-gradient(45deg, #1212c5 25%, transparent 25%), linear-gradient(-45deg, transparent 25%, #0a0aa0 25%);
+    background-size: 33px 30px;
+    height: 30px;
+    width: 100%;
+}
+
+/* Posicionando cada río */
+.creek-1{
+    width: 180px;
+    height: 320px;
+    left: 0;
+    z-index: 2;
+}
+
+.creek-2{
+    width: 190px;
+    height: 250px;
+    right: 0;
+    z-index: 4;
+}
+
+.creek-3{
+    width: 180px;
+    height: 170px;
+    left: 0;
+    z-index: 6;
+}
+
+/* Creando las hojas */
+.leaf{
+    width: 60px;
+    height: 60px;
+    border-radius: 50% 0 50% 0;
+    position: absolute;
+    z-index: 6;
+}
+
+/* Posicionando cada hoja */
+.leaf-1{
+    bottom: 30px;
+    left: 20px;
+    background: linear-gradient(#03ec03, #067406);
+    animation: leaf-move 3s infinite .5s;
+}
+
+.leaf-2{
+    bottom: 50px;
+    left: 110px;
+    background: linear-gradient(#03ec03, #067406);
+    animation: leaf-move 2s infinite .5s;
+}
+
+.leaf-3{
+    bottom: 20px;
+    left: 190px;
+    background: linear-gradient(#067406, #03ec03);
+    animation: leaf-move 3s infinite .5s;
+}
+
+/*Animaciones*/
+@keyframes jumps{
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-50%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes leaf-move{
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(50%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
